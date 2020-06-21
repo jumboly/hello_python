@@ -47,8 +47,10 @@ def draw_racket():
 def move_ball():
     global ball_ichi_x, ball_ichi_y, ball_idou_x, ball_idou_y
 
-    ball_ichi_x = ball_ichi_x + ball_idou_x
-    ball_ichi_y = ball_ichi_y + ball_idou_y
+    if 0 <= ball_ichi_x + ball_idou_x <= 640:
+        ball_ichi_x = ball_ichi_x + ball_idou_x
+    if 0 <= ball_ichi_y + ball_idou_y <= 480:
+        ball_ichi_y = ball_ichi_y + ball_idou_y
 
 # ゲームの繰り返し処理
 def game_loop():
