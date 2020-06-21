@@ -43,11 +43,19 @@ def draw_racket():
     cv.create_rectangle(racket_ichi_x, 470,
                         racket_ichi_x + racket_size, 480, fill = "yellow")
 
+# ボールの移動
+def move_ball():
+    global ball_ichi_x, ball_ichi_y, ball_idou_x, ball_idou_y
+
+    ball_ichi_x = ball_ichi_x + ball_idou_x
+    ball_ichi_y = ball_ichi_y + ball_idou_y
+
 # ゲームの繰り返し処理
 def game_loop():
     draw_screen()
     draw_ball()
     draw_racket()
+    move_ball()
     win.after(speed, game_loop)
 
 
