@@ -25,8 +25,21 @@ def init_game():
     point = 0
     speed = 50
     win.title("スカッシュゲーム：スタート！")
+
+# 画面の描画
+def draw_screen():
+    # 画面クリア
+    cv.delete("all")
+    # キャンバス(画面)の作成
+    cv.create_rectangle(0, 0, 640, 480, fill = "white", width = 0)
     
+# ゲームの繰り返し処理
+def game_loop():
+    draw_screen()
+    win.after(speed, game_loop)
+
 
 # ゲームのメイン処理
 init_game()
+game_loop()
 win.mainloop()
