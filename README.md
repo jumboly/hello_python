@@ -1,2 +1,2 @@
 # hello_python
-こんにちはPygonの演習
+こんにちはPythonの演習
