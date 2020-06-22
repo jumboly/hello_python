@@ -53,6 +53,11 @@ def move_ball():
         ball_idou_x *= -1
         winsound.Beep(1320, 50)
 
+    # 天井に当たったかの判定
+    if ball_ichi_y + ball_idou_y < 0:
+        ball_idou_y *= -1
+        winsound.Beep(1320, 50)
+
     if 0 <= ball_ichi_x + ball_idou_x <= 640:
         ball_ichi_x = ball_ichi_x + ball_idou_x
     if 0 <= ball_ichi_y + ball_idou_y <= 480:
