@@ -63,6 +63,14 @@ def move_ball():
     if 0 <= ball_ichi_y + ball_idou_y <= 480:
         ball_ichi_y = ball_ichi_y + ball_idou_y
 
+# マウスの動きの処理
+def motion(event): # even:マウスポインタの位置情報
+    global racket_ichi_x
+    racket_ichi_x = event.x
+
+# マウスの動きとクリックの確認
+win.bind("<Motion>", motion)
+
 # ゲームの繰り返し処理
 def game_loop():
     draw_screen()
