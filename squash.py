@@ -47,7 +47,9 @@ def draw_racket():
 
 # ボールの移動
 def move_ball():
-    global point, ball_ichi_x, ball_ichi_y, ball_idou_x, ball_idou_y
+    global is_gameover, point, ball_ichi_x, ball_ichi_y, ball_idou_x, ball_idou_y
+
+    if is_gameover: return
 
     # 左右の壁に当たったかの判定
     if ball_ichi_x + ball_idou_x < 0 or ball_ichi_x + ball_idou_x > 640:
@@ -84,6 +86,11 @@ def move_ball():
         point += 10
 
         win.title(message + " 得点＝" + str(point))    
+
+    # ミスした時の判定
+    if ball_ichi_y + ball_idou_y > 480:
+        winsound.Beep(200, 800)
+        is_gameover = True
 
     if 0 <= ball_ichi_x + ball_idou_x <= 640:
         ball_ichi_x = ball_ichi_x + ball_idou_x
