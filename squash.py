@@ -69,6 +69,21 @@ def move_ball():
 
         winsound.Beep(2000, 50)
         
+        mes = random.randint(0, 4)
+        if mes == 0:
+            message = "うまい！"
+        if mes == 1:
+            message = "グッド！"
+        if mes == 2:
+            message = "ナイス！"
+        if mes == 3:
+            message = "よしっ！"
+        if mes == 4:
+            message = "すてき！"
+
+        point += 10
+
+        win.title(message + " 得点＝" + str(point))    
 
     if 0 <= ball_ichi_x + ball_idou_x <= 640:
         ball_ichi_x = ball_ichi_x + ball_idou_x
