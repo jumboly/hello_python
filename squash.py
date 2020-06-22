@@ -89,6 +89,15 @@ def move_ball():
 
     # ミスした時の判定
     if ball_ichi_y + ball_idou_y > 480:
+        mes = random.randint(0, 2)
+        if mes == 0:
+            message = "ヘタくそ！"
+        if mes == 1:
+            message = "ミスしたね！"
+        if mes == 2:
+            message = "あーあ、見てられないね！"
+        win.title(message + " 得点＝" + str(point))
+            
         winsound.Beep(200, 800)
         is_gameover = True
 
