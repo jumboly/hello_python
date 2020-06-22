@@ -2,6 +2,7 @@
 
 # モジュールのインポート
 from tkinter import *
+import winsound
 
 # ウィンドウの作成
 win = Tk()
@@ -46,6 +47,11 @@ def draw_racket():
 # ボールの移動
 def move_ball():
     global ball_ichi_x, ball_ichi_y, ball_idou_x, ball_idou_y
+
+    # 左右の壁に当たったかの判定
+    if ball_ichi_x + ball_idou_x < 0 or ball_ichi_x + ball_idou_x > 640:
+        ball_idou_x *= -1
+        winsound.Beep(1320, 50)
 
     if 0 <= ball_ichi_x + ball_idou_x <= 640:
         ball_ichi_x = ball_ichi_x + ball_idou_x
